@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import "./Style.css";
 class Form extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      department: "",
-      rating: "",
-      employees: [],
-    };
-  }
+  state = {
+    name: "",
+    department: "",
+    rating: "",
+    employees: [],
+  };
 
   handleNameChange = (event) => {
     this.setState({
@@ -29,14 +26,16 @@ class Form extends Component {
 
   handleButtonClick = (event) => {
     event.preventDefault();
+
     const tempObj = {
       name: this.state.name,
       department: this.state.department,
       rating: this.state.rating,
     };
-    const tempar = this.state.employees;
-    tempar.push(tempObj);
-    this.setState({ employees: tempar });
+
+    const tempArr = this.state.employees;
+    tempArr.push(tempObj);
+    this.setState({ employees: tempArr });
   };
 
   render() {
@@ -46,7 +45,7 @@ class Form extends Component {
           <form onSubmit={this.handleButtonClick}>
             <h1>Employee Feedback Form</h1>
             <div>
-              <label class="label">Name :</label>
+              <label className="label">Name :</label>
               <input
                 type="text"
                 value={this.state.name}
@@ -55,7 +54,7 @@ class Form extends Component {
             </div>
             <br />
             <div>
-              <lable class="label">Department :</lable>
+              <lable className="label">Department :</lable>
               <input
                 type="text"
                 value={this.state.department}
@@ -64,7 +63,7 @@ class Form extends Component {
             </div>
             <br />
             <div>
-              <lable class="label">Rating :</lable>
+              <lable className="label">Rating :</lable>
               <input
                 type="number"
                 value={this.state.rating}
@@ -81,7 +80,7 @@ class Form extends Component {
           {this.state.employees.map((value, index) => {
             return (
               <div className="box">
-                {index + 1}. Name : {value.name} | Department :{" "}
+                {index + 1}. Name : {value.name} | Department :
                 {value.department} | Rating : {value.rating}
               </div>
             );
