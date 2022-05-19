@@ -54,7 +54,6 @@ h1{
   .container { 
     background-color: rgba(17, 0, 255, 0.3);
     font-weight: bold;  
-    border: 3px solid rgb(0, 0, 91);
     width: 84vw;
     display: flex;
     flex-wrap: wrap;
